@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070b14">
+<title>Propiedades · Marilyn Benavente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="app.css?v=41">
+</head><body>
+<nav id="sb" aria-label="Menú principal">
+ <div class="sb-l"><i>MB</i><span>Marilyn Benavente<small>Panel inmobiliario</small></span></div>
+ <div class="sb-n"><i class="sb-i"></i>
+  <button class="sb-a" data-nav="res"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Resumen</span></button>
+  <button class="sb-a" data-nav="prop"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6"/></svg><span>Propiedades</span><b class="sb-b">0</b></button>
+  <button class="sb-a" data-nav="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1.8-5h14.4L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 11.6V20h14v-8.4"/><path d="M10 20v-5h4v5"/></svg><span>Marketplace</span><b class="sb-b">0</b></button>
+  <button class="sb-a" data-nav="tt"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.3 2.5 2 4.2 4.5 4.4"/></svg><span>TikTok</span><b class="sb-b">0</b></button>
+  <button class="sb-a" data-nav="sis"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7.5h2M13 7.5h2M9 11.5h2M13 11.5h2M9 15.5h2M13 15.5h2M10.5 21v-3h3v3"/></svg><span>Sistema EI</span><b class="sb-b">0</b></button>
+ </div>
+ <div class="sb-f">
+  <button class="sb-t" id="shr" type="button" title="Copiar el enlace público del panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg><span>Copiar enlace</span></button>
+  <button class="sb-t acc" id="acc" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Ingresar</span></button>
+  <button class="sb-t sb-tg" aria-label="Expandir o contraer menú" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg><span>Menú</span></button>
+ </div>
+</nav>
+<div class="w">
+ <div class="hero" data-vw="res">
+  <header class="top">
+   <div class="ttl"><span class="crest"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6"/></svg></span>
+    <div style="min-width:0"><div class="eyebrow">Arequipa · Panel inmobiliario</div><h1>Marilyn Benavente · Propiedades</h1>
+     <div class="st"><span class="live" id="live"><i></i>Conectando…</span><span class="pill ro viewer"><i></i>Vista pública · solo lectura</span><span class="pill ow own"><i></i>Modo edición</span><button class="btn mob" id="acc2" type="button" style="min-height:26px;padding:0 10px;font-size:11.5px">Ingresar</button></div></div></div>
+   <div class="acts own"><button class="btn" id="arc" hidden title="Propiedades alquiladas, vendidas o que ya no tienes">Archivadas</button><button class="btn" id="sy">Sincronizar sistema</button><button class="btn" id="ex" title="Descargar una copia de todos tus datos">Respaldo</button><button class="btn" id="im" title="Cargar un respaldo .json">Importar</button><button class="btn p" id="add">+ Propiedad</button></div>
+   <input type="file" id="pf" accept="image/*" hidden><input type="file" id="tf" accept=".csv,.xlsx,.xls,.txt" hidden><input type="file" id="fi" accept=".json" hidden>
+  </header>
+  <div class="warn" id="warn" hidden></div>
+  <div class="al own" id="al" hidden></div>
+  <section class="kpis" id="kpis"></section>
+ </div>
+ <div class="grid" data-vw="res">
+  <div class="box mapbox"><div class="mh"><h2>Mapa de Arequipa <small>· toca un pin para ver la propiedad</small></h2><div class="mt" role="toolbar" aria-label="Controles del mapa"><button class="btn" id="lst" aria-pressed="false" title="Abrir la lista de propiedades">Lista</button><button class="btn" id="sw" title="Cambiar entre calles y satélite">Ver satélite</button><button class="btn p" id="fs" aria-pressed="false" title="Mapa a pantalla completa (Esc para salir)">Ampliar mapa</button></div></div>
+   <div id="map" aria-label="Mapa de propiedades de Arequipa"></div>
+   <div class="mfoot"><div id="info"></div><div class="lg"><span><i class="lgp v"></i>Venta</span><span><i class="lgp a"></i>Alquiler</span><span><i class="lgp ap"></i>Ubicación aproximada</span><span><i class="lgc"></i>Grupo: acerca el mapa para separar</span><span id="ms">Cargando mapa…</span></div></div></div>
+  <div class="box drw"><div class="dhd"><b>Propiedades</b><button class="btn" id="dcl" aria-label="Cerrar la lista">Cerrar ✕</button></div><div id="pn"></div></div>
+ </div>
+ <div class="bar kw-vh" data-vw="prop"><div id="fl"></div><select id="so2" class="btn"><option value="">Orden: como las cargué</option><option value="pr">Precio mayor</option><option value="d">Distrito A–Z</option></select><input id="q" type="search" placeholder="Buscar por título, distrito o descripción…" autocomplete="off"></div>
+ <div class="list kw-vh" id="list" data-vw="prop"></div>
+ <div class="kw-vh" id="brd" data-vw="tt"></div>
+ <section class="vp kw-vh" id="mkv" data-vw="mk" aria-label="Marketplace"></section>
+ <section class="vp kw-vh" id="sisv" data-vw="sis" aria-label="Sistema EI"></section>
+</div>
+<div class="mdl" id="im2" hidden><div class="sheet" id="ib"></div></div>
+<div class="mdl" id="ov" hidden><form class="sheet" id="f"></form></div>
+<div class="mdl" id="lg" hidden><form class="sheet" id="lgf" style="max-width:400px" autocomplete="on">
+ <div class="lgh"><i><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></i><div><h2 style="margin:0">Ingresar para editar</h2><span class="mut">Solo la dueña o el dueño del panel puede editar.</span></div></div>
+ <label>Usuario<input name="u" autocomplete="username" required autocapitalize="none" spellcheck="false"></label>
+ <label>Contraseña<input name="p" type="password" autocomplete="current-password" required></label>
+ <p class="er" id="lge"></p>
+ <div class="acts"><button class="btn p" type="submit">Ingresar</button><button class="btn" type="button" data-close>Cancelar</button></div>
+</form></div>
+<div id="toast" hidden></div>
+<script src="config.js?v=41"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
+<script src="app.js?v=41"></script>
+</body></html>
